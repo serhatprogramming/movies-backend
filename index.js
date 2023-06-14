@@ -23,10 +23,6 @@ let movies = [
   },
 ];
 
-app.get("/", (req, res) => {
-  res.send("Hello Express!");
-});
-
 app.get("/api/movies", (req, res) => {
   res.json(movies);
 });
@@ -64,7 +60,7 @@ app.post("/api/movies", (req, res) => {
   res.status(201).json(newMovie);
 });
 
-const port = 3001;
+const port = process.env.PORT || 3001;
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
